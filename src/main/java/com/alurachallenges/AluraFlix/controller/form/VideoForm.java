@@ -1,4 +1,4 @@
-package com.alurachallenges.AluraFlix.dto.form;
+package com.alurachallenges.AluraFlix.controller.form;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,7 +9,7 @@ import com.alurachallenges.AluraFlix.model.Genre;
 import com.alurachallenges.AluraFlix.model.Video;
 import com.alurachallenges.AluraFlix.repository.GenreRepository;
 
-public class VideoDtoForm {
+public class VideoForm {
 
 	@NotBlank
 	private String description;

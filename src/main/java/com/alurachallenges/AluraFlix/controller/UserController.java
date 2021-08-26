@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alurachallenges.AluraFlix.config.validation.InvalidFormDto;
-import com.alurachallenges.AluraFlix.dto.form.UserDtoForm;
-import com.alurachallenges.AluraFlix.dto.form.UserDtoPartialUpdateForm;
+import com.alurachallenges.AluraFlix.controller.form.UserForm;
+import com.alurachallenges.AluraFlix.controller.form.UserPartialUpdateForm;
 import com.alurachallenges.AluraFlix.model.User;
 import com.alurachallenges.AluraFlix.repository.UserRepository;
 
@@ -33,14 +33,14 @@ public class UserController {
 	private UserRepository userRepository;
 
 	@PostMapping
-	public ResponseEntity<?> registerNewUser(@RequestBody @Valid UserDtoForm form) {
+	public ResponseEntity<?> registerNewUser(@RequestBody @Valid UserForm form) {
 		User user = form.convert();
 		userRepository.save(user);
 		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
 
 	@PatchMapping
-	public ResponseEntity<?> updateUser(@RequestBody @Valid UserDtoPartialUpdateForm form,
+	public ResponseEntity<?> updateUser(@RequestBody @Valid UserPartialUpdateForm form,
 			@AuthenticationPrincipal UserDetails userDetails) {
 		Optional<User> optional = userRepository.findByUsername(userDetails.getUsername());
 		try {

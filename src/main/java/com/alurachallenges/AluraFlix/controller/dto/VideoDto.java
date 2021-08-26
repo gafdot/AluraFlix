@@ -1,4 +1,4 @@
-package com.alurachallenges.AluraFlix.dto;
+package com.alurachallenges.AluraFlix.controller.dto;
 
 import com.alurachallenges.AluraFlix.model.Genre;
 import com.alurachallenges.AluraFlix.model.Video;

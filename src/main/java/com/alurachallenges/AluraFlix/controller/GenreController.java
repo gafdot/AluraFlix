@@ -27,10 +27,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.alurachallenges.AluraFlix.config.validation.InvalidFormDto;
-import com.alurachallenges.AluraFlix.dto.GenreDto;
-import com.alurachallenges.AluraFlix.dto.GenreDtoWithVideos;
-import com.alurachallenges.AluraFlix.dto.form.GenreDtoForm;
-import com.alurachallenges.AluraFlix.dto.form.GenreDtoPartialUpdateForm;
+import com.alurachallenges.AluraFlix.controller.dto.GenreDto;
+import com.alurachallenges.AluraFlix.controller.dto.GenreDtoWithVideos;
+import com.alurachallenges.AluraFlix.controller.form.GenreForm;
+import com.alurachallenges.AluraFlix.controller.form.GenrePartialUpdateForm;
 import com.alurachallenges.AluraFlix.model.Genre;
 import com.alurachallenges.AluraFlix.repository.GenreRepository;
 import com.alurachallenges.AluraFlix.repository.VideoRepository;
@@ -67,7 +67,7 @@ public class GenreController {
 	}
 
 	@PostMapping
-	public ResponseEntity<GenreDto> addOneGenre(@RequestBody @Valid GenreDtoForm form, UriComponentsBuilder builder) {
+	public ResponseEntity<GenreDto> addOneGenre(@RequestBody @Valid GenreForm form, UriComponentsBuilder builder) {
 		Genre genre = form.convert();
 		genreRepository.save(genre);
 		URI uri = builder.path("genres/{id}").buildAndExpand(genre.getId()).toUri();
@@ -75,7 +75,7 @@ public class GenreController {
 	}
 
 	@PutMapping("{id}")
-	public ResponseEntity<?> updateGenre(@PathVariable Long id, @RequestBody @Valid GenreDtoForm form) {
+	public ResponseEntity<?> updateGenre(@PathVariable Long id, @RequestBody @Valid GenreForm form) {
 		Optional<Genre> optional = genreRepository.findById(id);
 		if (optional.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("The genre id was not found.");
@@ -87,7 +87,7 @@ public class GenreController {
 
 	@PatchMapping("{id}")
 	public ResponseEntity<?> partiallyUpdateGenre(@PathVariable Long id,
-			@RequestBody @Valid GenreDtoPartialUpdateForm form) {
+			@RequestBody @Valid GenrePartialUpdateForm form) {
 		Optional<Genre> optional = genreRepository.findById(id);
 		if (optional.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("The genre id was not found.");

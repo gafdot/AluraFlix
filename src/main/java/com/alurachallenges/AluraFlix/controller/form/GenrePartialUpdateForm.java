@@ -1,10 +1,10 @@
-package com.alurachallenges.AluraFlix.dto.form;
+package com.alurachallenges.AluraFlix.controller.form;
 
 import javax.management.InvalidAttributeValueException;
 
 import com.alurachallenges.AluraFlix.model.Genre;
 
-public class GenreDtoPartialUpdateForm {
+public class GenrePartialUpdateForm {
 
 	private String title;
 	private String color;

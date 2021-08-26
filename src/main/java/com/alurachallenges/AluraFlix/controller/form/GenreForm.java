@@ -1,10 +1,10 @@
-package com.alurachallenges.AluraFlix.dto.form;
+package com.alurachallenges.AluraFlix.controller.form;
 
 import javax.validation.constraints.NotBlank;
 
 import com.alurachallenges.AluraFlix.model.Genre;
 
-public class GenreDtoForm {
+public class GenreForm {
 
 	@NotBlank
 	private String title;

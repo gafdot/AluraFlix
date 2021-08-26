@@ -1,4 +1,4 @@
-package com.alurachallenges.AluraFlix.dto.form;
+package com.alurachallenges.AluraFlix.controller.form;
 
 import javax.management.InvalidAttributeValueException;
 
@@ -7,7 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.alurachallenges.AluraFlix.model.User;
 import com.alurachallenges.AluraFlix.repository.UserRepository;
 
-public class UserDtoPartialUpdateForm {
+public class UserPartialUpdateForm {
 
 	private String password;
 	private String name;

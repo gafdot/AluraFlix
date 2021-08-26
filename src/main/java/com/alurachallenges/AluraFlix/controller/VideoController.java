@@ -33,9 +33,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.alurachallenges.AluraFlix.config.validation.InvalidFormDto;
-import com.alurachallenges.AluraFlix.dto.VideoDto;
-import com.alurachallenges.AluraFlix.dto.form.VideoDtoForm;
-import com.alurachallenges.AluraFlix.dto.form.VideoDtoPartialUpdateForm;
+import com.alurachallenges.AluraFlix.controller.dto.VideoDto;
+import com.alurachallenges.AluraFlix.controller.form.VideoForm;
+import com.alurachallenges.AluraFlix.controller.form.VideoPartialUpdateForm;
 import com.alurachallenges.AluraFlix.model.Video;
 import com.alurachallenges.AluraFlix.repository.GenreRepository;
 import com.alurachallenges.AluraFlix.repository.VideoRepository;
@@ -92,7 +92,7 @@ public class VideoController {
 	}
 
 	@PostMapping
-	public ResponseEntity<VideoDto> addOneVideo(@RequestBody @Valid VideoDtoForm form, UriComponentsBuilder builder) {
+	public ResponseEntity<VideoDto> addOneVideo(@RequestBody @Valid VideoForm form, UriComponentsBuilder builder) {
 		Video video = form.convert(genreRepository);
 		videoRepository.save(video);
 		List<Video> videos = genreRepository.findById(video.getGenre().getId()).get().getVideos();
@@ -102,7 +102,7 @@ public class VideoController {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<?> updateVideo(@RequestBody @Valid VideoDtoForm form, @PathVariable Long id) {
+	public ResponseEntity<?> updateVideo(@RequestBody @Valid VideoForm form, @PathVariable Long id) {
 		Optional<Video> optional = videoRepository.findById(id);
 		if (optional.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("The video id has not been found.");
@@ -113,7 +113,7 @@ public class VideoController {
 	}
 
 	@PatchMapping("/{id}")
-	public ResponseEntity<?> partiallyUpdateVideo(@RequestBody @Valid VideoDtoPartialUpdateForm form,
+	public ResponseEntity<?> partiallyUpdateVideo(@RequestBody @Valid VideoPartialUpdateForm form,
 			@PathVariable Long id) {
 		Optional<Video> optional = videoRepository.findById(id);
 		if (optional.isEmpty()) {

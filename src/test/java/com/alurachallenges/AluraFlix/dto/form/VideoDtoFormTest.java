@@ -10,6 +10,7 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import com.alurachallenges.AluraFlix.controller.form.VideoForm;
 import com.alurachallenges.AluraFlix.model.Genre;
 import com.alurachallenges.AluraFlix.model.Video;
 import com.alurachallenges.AluraFlix.repository.GenreRepository;
@@ -24,7 +25,7 @@ class VideoDtoFormTest {
 	private Video video;
 	private Video video2;
 	private Optional<Genre> optional;
-	private VideoDtoForm form;
+	private VideoForm form;
 
 	@BeforeEach
 	public void initialize() {
@@ -39,7 +40,7 @@ class VideoDtoFormTest {
 		video2 = new Video("video 2", "url 2", "title 2", genre, true);
 		genre.getVideos().add(video2);
 
-		form = new VideoDtoForm();
+		form = new VideoForm();
 		form.setDescription("form description 1");
 		form.setTitle("form title 1");
 		form.setUrl("form url.1");

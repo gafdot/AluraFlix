@@ -1,4 +1,4 @@
-package com.alurachallenges.AluraFlix.dto;
+package com.alurachallenges.AluraFlix.controller.dto;
 
 import java.util.List;
 import java.util.stream.Collectors;

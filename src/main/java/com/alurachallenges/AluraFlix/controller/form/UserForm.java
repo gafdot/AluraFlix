@@ -1,4 +1,4 @@
-package com.alurachallenges.AluraFlix.dto.form;
+package com.alurachallenges.AluraFlix.controller.form;
 
 import javax.validation.constraints.NotBlank;
 
@@ -6,7 +6,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.alurachallenges.AluraFlix.model.User;
 
-public class UserDtoForm {
+public class UserForm {
 
 	@NotBlank
 	private String username;
