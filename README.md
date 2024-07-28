@@ -1,7 +1,4 @@
 # AluraFlix
-The AluraFlix API is the back-end for a video sharing platform. This project was developed so I can introduce my programming skills. 
-Therefore, since now I want to thank you for your attention and for the time you are spending checking out my work.
-
 To build this API, I applied the RESTful principles and developed it using the Java language. 
 I implemented Spring Boot Framework to set up the web application. Regarding the database, I persisted on MySQL and for the tests I employed the in-memory H2. 
 The integration was done using JPA and Hibernate technologies, beyond Spring Data which provided the connection with the database. 
